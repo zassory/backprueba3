@@ -19,6 +19,7 @@ app.use('/api/usuarios', usuarios );
 app.use('/api/cursos', cursos );
 //Routes
 app.use('/api/users', require('./routes/auth'));
+app.use('/api/courses' , require('./routes/courses'));
 
 const port = process.env.PORT || 3000;
 app.listen(port, ()=> {

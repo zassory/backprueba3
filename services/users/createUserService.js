@@ -1,5 +1,3 @@
-const { request , response } = require('express');
-const bcrypt = require('bcryptjs');
 const Usuario = require('../../models/usuario_model');
 
 const createUserService = async( body ) => {

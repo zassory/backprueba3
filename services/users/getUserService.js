@@ -1,22 +1,29 @@
-const express = require('express');
 const Usuario = require('../../models/usuario_model');
-const { response } = require('express');
 
-const getUserService = async() => {
+
+const getUserService = async( email ) => {
 
     try{
-        let activeUsers = await Usuario.find({"estado":true});
+        let activeUsersById = await Usuario.find({"email":email});
+
+        if(!activeUsersById){
+            return {
+                statusCode:404,
+                ok:false,
+                msg:'No hay usuario con ese email'
+            }
+        }
 
         return {
             statusCode:200,
             ok:true,
-            activeUsers
+            activeUsersById
         }
     }catch(err){
         return {
-            statusCode:400,
+            statusCode:500,
             ok:false,
-            msg:'Por favor hable con el administrador'
+            msg:'Hable con el administrador'
         }
     }
 

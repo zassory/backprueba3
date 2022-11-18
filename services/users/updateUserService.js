@@ -1,8 +1,5 @@
-const express = require('express');
 const Usuario = require('../../models/usuario_model');
-const { response } = require('express');
 const Joi = require('joi');
-
 
 const updateUserService = async( email , body ) => {
 
