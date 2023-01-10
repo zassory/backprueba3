@@ -1,5 +1,5 @@
 const express = require('express');
-const mongoose = require('mongoose');
+const mongoose = require('mongoose'); //orm
 
 const usuarios = require('./routes/usuarios');
 const cursos = require('./routes/cursos');

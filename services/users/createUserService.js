@@ -1,7 +1,7 @@
 const Usuario = require('../../models/usuario_model');
 
 const createUserService = async( body ) => {
-
+    
     let user = new Usuario({
         email    : body.email,
         nombre   : body.nombre,
@@ -13,7 +13,8 @@ const createUserService = async( body ) => {
         return {
             statusCode:200,
             ok:true,
-            uid:user.id            
+            nombre:user.nombre,
+            email:user.email
         }
 
     }catch(err){

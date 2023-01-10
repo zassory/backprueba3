@@ -11,6 +11,7 @@ const {
     getUserController,
     getUsersController,
     updateUserController,
+    deleteUserController,
     } = require('../controllers/auth/auth');
 //const { createUser , updateUser , deleteUser , getUser , findUser } = require('../controllers/auth');
 
@@ -20,6 +21,7 @@ router.post('/', createUserController);
 router.put('/:email' , updateUserController );
 router.get('/', getUsersController );
 router.get('/', getUserController);
+router.delete('/',deleteUserController);
 
 module.exports = router;
 

@@ -1,15 +1,16 @@
 const express = require('express');
+
 const Usuario = require('../models/usuario_model');
-const { response } = express;
-const Joi = require('joi');
 const ruta = express.Router();
+const Joi = require('joi');
+
+const { response } = express;
 
 const schema = Joi.object({
-    nombre: Joi.string()        
+    nombre: Joi.string()
         .min(3)
         .max(30)
         .required(),
-
     password: Joi.string()
         .pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')),
 
@@ -33,6 +34,8 @@ ruta.get('/',(req,res = response) => {
 
 ruta.post('/', (req,res = response) => {
     let body = req.body;
+
+    console.log('Voy a crear un usuario');
 
     const { error, value } = schema.validate({nombre:body.nombre,email:body.email});
     if(!error){

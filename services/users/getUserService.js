@@ -8,12 +8,11 @@ const getUserService = async( email ) => {
 
         if(!activeUsersById){
             return {
-                statusCode:404,
+                statusCode:400,
                 ok:false,
                 msg:'No hay usuario con ese email'
             }
         }
-
         return {
             statusCode:200,
             ok:true,

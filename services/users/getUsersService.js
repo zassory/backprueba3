@@ -4,7 +4,8 @@ const Usuario = require('../../models/usuario_model');
 const getUsersService = async() => {
 
     try{
-        let activeUsers = await Usuario.find({"estado":true});
+        let activeUsers = await Usuario.find({"estado":true})
+        .select({nombre:1,email:1});
 
         return {
             statusCode:200,
